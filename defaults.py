@@ -12,10 +12,10 @@ NOT_OBJECT_IMAGES_PATH = (
 
 TEST_IMAGES_PATH = DATA_PATH + "test/"  # Path to the folder containing test images
 
-MODEL_NAME = (
-    "efficientnet"  # Name of the model to be used for detection (resnet, efficientnet, etc.)
-)
+MODEL_NAME = "mobilenet"  # Name of the model to be used for detection (resnet, efficientnet, vgg, densenet, mobilenet)
+
+PKL_FILE_PATH = "pkl/"  # Path to the folder where the pkl file will be saved
 
 PKL_FILE_NAME = (
-    OBJECT_NAME + "_" + MODEL_NAME + ".pkl"
+    PKL_FILE_PATH + OBJECT_NAME + "_" + MODEL_NAME + ".pkl"
 )  # Name of the pkl file to be saved

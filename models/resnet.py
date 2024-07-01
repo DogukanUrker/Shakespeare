@@ -18,14 +18,14 @@ from sklearn.metrics import (
 )  # Evaluation metric for classification accuracy
 import joblib  # Save and load Python objects (including sklearn models) to and from disk
 import time  # Time-related functionalities
-from defaults import * # Import constants from defaults.py
+from defaults import *  # Import constants from defaults.py
 
 print("\n")  # Print newline for better readability
 
 appStartTime = time.time()  # Record start time for app
 
 # Define the directory where the dataset is stored and the class names
-dataDir = DATA_PATH # Directory containing the dataset
+dataDir = DATA_PATH  # Directory containing the dataset
 classes = [OBJECT_NAME, "not-" + OBJECT_NAME]  # Class names for classification
 
 # Define the target image size for resizing
