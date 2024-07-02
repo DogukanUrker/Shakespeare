@@ -53,8 +53,8 @@ python3 setup.py
 
 ## 🎨 Customization
 
-- Modify `defaults.py` to adjust hyperparameters or experiment with different model architectures.
-- Extend functionality by adding preprocessing steps or data augmentation in `main.py`.
+- Modify `defaults.py` or `{modelName}.py` to adjust hyperparameters or experiment with different model architectures.
+- Extend functionality by adding preprocessing steps or data augmentation in `{modelName}.py`.
 
 ## 💞 Contributing
 
