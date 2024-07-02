@@ -54,6 +54,18 @@ else:
         "Test images folder already exists!"
     )  # Inform the user that the test images folder already exists.
 
+if not os.path.exists(
+    PKL_FILE_PATH
+):  # Check if the pkl folder path does not exist.
+    os.mkdir(PKL_FILE_PATH)  # Create the pkl folder.
+    print(
+        "PKL folder created!"
+    )  # Inform the user that the pkl folder has been created.
+else:
+    print(
+        "PKL folder already exists!"
+    )  # Inform the user that the pkl folder already exists.
+
 subprocess.call(
     ["pip", "install", "-r", "requirements.txt"]
 )  # Run the command to install all required packages from requirements.txt.
