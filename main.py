@@ -6,6 +6,12 @@ print(f"Running the {MODEL_NAME} model...")  # Inform the user which model is be
 
 
 def runModel():  # Define the runModel function.
+    """
+    Runs the specified model based on the value of MODEL_NAME.
+
+    Raises:
+        ValueError: If the specified model is not found.
+    """
     if MODEL_NAME == "resnet":  # Check if the model name is "resnet".
         import models.resnet  # Import the resnet model from the models package.
     elif MODEL_NAME == "efficientnet":  # Check if the model name is "efficientnet".

@@ -55,6 +55,17 @@ dataTransforms = transforms.Compose(
 
 # Function to load images and their corresponding labels
 def loadImages(dataDir, classes, imageSize):
+    """
+    Load images from the specified directory and resize them to the given image size.
+
+    Args:
+        dataDir (str): The directory path where the images are located.
+        classes (list): A list of class names.
+        imageSize (tuple): The desired size of the images after resizing.
+
+    Returns:
+        list: A list of tuples containing the loaded images and their corresponding labels.
+    """
     images = []  # List to store images and their labels
     startTime = time.time()  # Record start time for loading images
     print(f"Loading images from '{dataDir}'...")  # Print progress message
@@ -102,6 +113,17 @@ print("\n")  # Print newline for better readability
 
 # Function to extract features from images using the pre-trained model
 def extractFeatures(images):
+    """
+    Extracts features from a list of images.
+
+    Args:
+        images (list): A list of image-label pairs.
+
+    Returns:
+        tuple: A tuple containing two numpy arrays. The first array contains the extracted features,
+        and the second array contains the corresponding labels.
+
+    """
     features = []  # List to store extracted features
     labels = []  # List to store corresponding labels
     print(f"Extracting features from {len(images)} images...")  # Print progress message
