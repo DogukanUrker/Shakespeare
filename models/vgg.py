@@ -19,7 +19,6 @@ from sklearn.metrics import (
 import joblib  # Save and load Python objects (including sklearn models) to and from disk
 import time  # Time-related functionalities
 import ssl  # SSL certificate handling
-from efficientnet_pytorch import EfficientNet  # EfficientNet model
 from defaults import *  # Import constants from defaults.py
 
 # Fix SSL certificate verification issues
