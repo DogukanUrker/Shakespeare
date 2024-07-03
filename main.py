@@ -4,4 +4,4 @@ from defaults import (
 
 print(f"Running the {MODEL_NAME} model...")  # Inform the user which model is being run.
 
-import model  # Import the model module.
+import train  # Import the train file.
