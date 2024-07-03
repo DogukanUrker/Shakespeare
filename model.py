@@ -3,6 +3,7 @@ import os  # For operating system related functionalities
 import numpy as np  # Numerical operations library
 from PIL import Image  # Python Imaging Library for image processing
 import torch  # PyTorch deep learning framework
+import torchvision.models as models  # Pre-trained models from torchvision
 import torchvision.transforms as transforms  # Data transformations for images
 from sklearn.model_selection import train_test_split  # Splitting dataset
 from sklearn.preprocessing import (
@@ -47,7 +48,7 @@ dataTransforms = transforms.Compose(
         ),  # Rotate the image by a random angle within [-10, 10] degrees
         transforms.ToTensor(),  # Convert the image to PyTorch tensor
         transforms.Normalize(
-            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+            mean=[0.485, 0.456, 0.406], std=[0.229, 0.256, 0.225]
         ),  # Normalize image with specific mean and std
     ]
 )
@@ -56,16 +57,15 @@ dataTransforms = transforms.Compose(
 # Function to load images and their corresponding labels
 def loadImages(dataDir, classes, imageSize):
     """
-    Load images from the specified directory for each class.
+    Load images from the specified directory and resize them to the given image size.
 
     Args:
-        dataDir (str): The directory path where the class directories are located.
+        dataDir (str): The directory path where the images are located.
         classes (list): A list of class names.
         imageSize (tuple): The desired size of the images after resizing.
 
     Returns:
-        list: A list of tuples, where each tuple contains an image and its corresponding label.
-
+        list: A list of tuples containing the loaded images and their corresponding labels.
     """
     images = []  # List to store images and their labels
     startTime = time.time()  # Record start time for loading images
@@ -96,19 +96,40 @@ imageLabelPairs = loadImages(dataDir, classes, imageSize)  # Call loadImages fun
 
 print("\n")  # Print newline for better readability
 
-# Load a pre-trained EfficientNet-B0 model for feature extraction
-startTime = time.time()  # Record start time for loading EfficientNet model
-print("Loading pre-trained EfficientNet-B0 model...")  # Print progress message
-model = EfficientNet.from_pretrained(
-    "efficientnet-b0"
-)  # Load pre-trained EfficientNet-B0 model
-model.eval()  # Set model to evaluation mode (not training mode)
-featureExtractor = (
-    model.extract_features
-)  # Use the extract_features method for feature extraction
-endTime = time.time()  # Record end time for loading EfficientNet model
+# Load a pre-trained MobileNet model for feature extraction
+startTime = time.time()  # Record start time for loading MobileNet model
 print(
-    f"Loaded EfficientNet-B0 model in {(endTime - startTime):.2f} seconds."
+    f"Loading pre-trained {MODEL_NAME} model..."
+)  # Inform the user which model is being loading.
+if MODEL_NAME == "resnet":  # Check if the model name is "resnet".
+    model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
+elif MODEL_NAME == "efficientnet":  # Check if the model name is "efficientnet".
+    model = models.efficientnet_b0(
+        weights=models.EfficientNet_B0_Weights.DEFAULT
+    )  # Load pre-trained EfficientNet model
+elif MODEL_NAME == "vgg":  # Check if the model name is "vgg".
+    model = models.vgg16(
+        weights=models.VGG16_Weights.DEFAULT
+    )  # Load pre-trained VGG model
+elif MODEL_NAME == "densenet":  # Check if the model name is "densenet".
+    model = models.densenet201(
+        weights=models.DenseNet201_Weights.DEFAULT
+    )  # Load pre-trained DenseNet model
+elif MODEL_NAME == "mobilenet":  # Check if the model name is "mobilenet".
+    model = models.mobilenet_v2(
+        weights=models.MobileNet_V2_Weights.DEFAULT
+    )  # Load pre-trained MobileNet model
+else:  # If the model name is neither "resnet" nor "efficientnet".
+    raise ValueError(
+        "Model not found!"
+    )  # Raise an error indicating the model was not found.
+model.eval()  # Set model to evaluation mode (not training mode)
+featureExtractor = torch.nn.Sequential(
+    *list(model.children())[:-1]
+)  # Extract feature extractor from MobileNet model
+endTime = time.time()  # Record end time for loading MobileNet model
+print(
+    f"Loaded {MODEL_NAME} model in {(endTime - startTime):.2f} seconds."
 )  # Print loading time
 
 print("\n")  # Print newline for better readability
@@ -123,7 +144,9 @@ def extractFeatures(images):
         images (list): A list of image-label pairs.
 
     Returns:
-        tuple: A tuple containing two numpy arrays - the extracted features and the corresponding labels.
+        tuple: A tuple containing two numpy arrays. The first array contains the extracted features,
+        and the second array contains the corresponding labels.
+
     """
     features = []  # List to store extracted features
     labels = []  # List to store corresponding labels
@@ -142,7 +165,7 @@ def extractFeatures(images):
         labels.append(label)  # Append corresponding label to list
         if idx % 1000 == 0 or idx == len(
             images
-        ):  # Print progress every 1000 images processed or at the end
+        ):  # Print progress every 100 images processed or at the end
             print(f"Processed {idx}/{len(images)} images...")  # Print progress message
     return np.array(features), np.array(
         labels
