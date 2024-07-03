@@ -6,9 +6,8 @@ Shakespeare is a lightweight PyTorch project designed to help you train a model 
     <img src="https://github.com/DogukanUrker/Shakespeare/assets/62756402/76d2fe03-1c5e-474f-99ed-f8683ec66a97" alt="logo">
 </p>
 
-[Tutorial Video](x)
-
-Created by [Doğukan Ürker](https://dogukanurker.com)
+## 📹 Tutorial Video
+Check out our [Tutorial Video](notready) for a step-by-step guide!
 
 ## 📂 Installation
 
@@ -53,8 +52,8 @@ python3 setup.py
 
 ## 🎨 Customization
 
-- Modify `defaults.py` or `{modelName}.py` to adjust hyperparameters or experiment with different model architectures.
-- Extend functionality by adding preprocessing steps or data augmentation in `{modelName}.py`.
+- Modify `defaults.py` or `train.py` to adjust hyperparameters or experiment with different model architectures.
+- Extend functionality by adding preprocessing steps or data augmentation in `train.py`.
 
 ## 💞 Contributing
 
@@ -75,3 +74,5 @@ If you find Shakespeare helpful in your projects and would like to support its d
 - **Visit our [donation page](https://dogukanurker.com/donate)** to choose from multiple platforms and support our work directly.
 
 Your support means a lot and helps us continue improving Shakespeare for the community. Thank you for considering!
+
+Created by [Doğukan Ürker](https://dogukanurker.com)
