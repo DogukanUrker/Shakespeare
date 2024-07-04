@@ -1,5 +1,7 @@
 OBJECT_NAME = "object"  # Name of the object to be detected
 
+NOT_OBJECT_NAME = "notObject"  # Name of the not object to be detected
+
 DATA_PATH = "data/"  # Path to the data folder
 
 OBJECT_IMAGES_PATH = (
@@ -7,7 +9,7 @@ OBJECT_IMAGES_PATH = (
 )  # Path to the folder containing images of the object to be detected
 
 NOT_OBJECT_IMAGES_PATH = (
-    DATA_PATH + "not" + "-" + OBJECT_NAME + "/"
+    DATA_PATH + NOT_OBJECT_NAME + "/"
 )  # Path to the folder containing images of the object not to be detected
 
 TEST_IMAGES_PATH = DATA_PATH + "test/"  # Path to the folder containing test images

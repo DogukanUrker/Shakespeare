@@ -31,7 +31,7 @@ appStartTime = time.time()  # Record start time for app
 
 # Define the directory where the dataset is stored and the class names
 dataDir = DATA_PATH  # Directory containing the dataset
-classes = [OBJECT_NAME, "not-" + OBJECT_NAME]  # Class names for classification
+classes = [OBJECT_NAME, NOT_OBJECT_NAME]  # Class names for classification
 
 # Define the target image size for resizing
 imageSize = (256, 256)
