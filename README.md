@@ -7,7 +7,8 @@ Shakespeare is a lightweight PyTorch project designed to help you train a model 
 </p>
 
 ## 📹 Tutorial Video
-Check out our [Tutorial Video](notready) for a step-by-step guide!
+
+Check out my [Tutorial Video](notready) for a step-by-step guide!
 
 ## 📂 Installation
 
@@ -65,13 +66,13 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🌟 Support Our Project!
 
-If you find Shakespeare helpful in your projects and would like to support its development and maintenance, you can contribute to our project's sustainability.
+If you find Shakespeare helpful in your projects and would like to support its development and maintenance, you can contribute to my project's sustainability.
 
 ### How You Can Help:
 
-- **Give Us a Star on GitHub**: Show your appreciation by starring our [GitHub repository](https://github.com/DogukanUrker/Shakespeare). It helps us reach more developers like you!
+- **Give Us a Star on GitHub**: Show your appreciation by starring my [GitHub repository](https://github.com/DogukanUrker/Shakespeare). It helps me reach more developers like you!
 
-- **Visit our [donation page](https://dogukanurker.com/donate)** to choose from multiple platforms and support our work directly.
+- **Visit my [donation page](https://dogukanurker.com/donate)** to choose from multiple platforms and support my work directly.
 
 Your support means a lot and helps us continue improving Shakespeare for the community. Thank you for considering!
 
