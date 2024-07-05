@@ -46,9 +46,18 @@ dataTransforms = transforms.Compose(
         transforms.RandomRotation(
             10
         ),  # Rotate the image by a random angle within [-10, 10] degrees
+        transforms.ColorJitter(
+            brightness=0.2, contrast=0.2, saturation=0.2, hue=0.001
+        ),  # Randomly change the brightness, contrast, saturation, and hue of the image
+        transforms.RandomGrayscale(
+            p=0.1
+        ),  # Randomly convert the image to grayscale with a probability of 10%
+        transforms.GaussianBlur(
+            kernel_size=5, sigma=(0.1, 2.0)
+        ),  # Apply Gaussian blur with a random kernel size and sigma
         transforms.ToTensor(),  # Convert the image to PyTorch tensor
         transforms.Normalize(
-            mean=[0.485, 0.456, 0.406], std=[0.229, 0.256, 0.225]
+            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
         ),  # Normalize image with specific mean and std
     ]
 )
@@ -163,7 +172,7 @@ def extractFeatures(images):
             )  # Extract features and convert to numpy array
         features.append(feature)  # Append extracted feature to list
         labels.append(label)  # Append corresponding label to list
-        if idx % 1000 == 0 or idx == len(
+        if idx % 100 == 0 or idx == len(
             images
         ):  # Print progress every 100 images processed or at the end
             print(f"Processed {idx}/{len(images)} images...")  # Print progress message
