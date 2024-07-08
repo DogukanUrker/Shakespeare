@@ -78,9 +78,6 @@ def extractFeatures(image):
     with torch.no_grad():  # Disable gradient computation
         # Extract features and flatten them
         feature = featureExtractor(image).numpy().flatten()
-        print(
-            f"Extracted feature shape: {feature.shape}"
-        )  # Debug print for feature shape
     return feature  # Return the extracted features
 
 
