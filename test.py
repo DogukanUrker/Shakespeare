@@ -8,9 +8,10 @@ import io  # Import the io module for handling byte streams
 import ssl  # SSL certificate handling
 from defaults import (
     MODEL_NAME,
+    OBJECT_NAME,
     PKL_FILE_NAME,
     TEST_IMAGES_PATH,
-)  # Import the MODEL_NAME, PKL_FILE_NAME, and TEST_IMAGES_PATH variables from the defaults module.
+)  # Import the MODEL_NAME, OBJECT_NAME, PKL_FILE_NAME, and TEST_IMAGES_PATH variables from the defaults module.
 
 # Fix SSL certificate verification issues
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -167,5 +168,5 @@ predictions = predictImagesInDirectory(
 
 for filename, result in predictions:  # Iterate over the prediction results
     print(
-        f"Image: {filename}, Object: {result}"
+        f"Image: {filename}, {OBJECT_NAME}: {result}"
     )  # Print the filename and prediction result
