@@ -96,7 +96,7 @@ def prediction(image):
         image (str): The path to the image file.
 
     Returns:
-        bool: True if the predicted class is object (0), False otherwise.
+        tuple: A tuple containing the predicted class (True if object, False otherwise) and the prediction percentage.
     """
     img = Image.open(image).convert("RGB")  # Open the image and convert it to RGB
     feature = extractFeatures(img)  # Extract features from the image
@@ -107,7 +107,7 @@ def prediction(image):
     return (
         True if result[0] == 0 else False,
         predictionPercentage,
-    )  # Retur the prediction result
+    )  # Return the prediction result as a tuple
 
 
 # Function to predict if an image is an object or not given its file path
