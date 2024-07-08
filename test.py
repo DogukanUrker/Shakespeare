@@ -10,8 +10,9 @@ from defaults import (
     MODEL_NAME,
     OBJECT_NAME,
     PKL_FILE_NAME,
+    NOT_OBJECT_NAME,
     TEST_IMAGES_PATH,
-)  # Import the MODEL_NAME, OBJECT_NAME, PKL_FILE_NAME, and TEST_IMAGES_PATH variables from the defaults module.
+)  # Import the MODEL_NAME, OBJECT_NAME, PKL_FILE_NAME, NOT_OBJECT_NAME, and TEST_IMAGES_PATH variables from the defaults module.
 
 # Fix SSL certificate verification issues
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -100,9 +101,13 @@ def prediction(image):
     img = Image.open(image).convert("RGB")  # Open the image and convert it to RGB
     feature = extractFeatures(img)  # Extract features from the image
     result = pipeline.predict([feature])  # Predict the class using the trained model
+    predictionPercentage = pipeline.predict_proba([feature])[0][
+        0
+    ]  # Get the prediction percentage
     return (
-        True if result[0] == 0 else False
-    )  # Return True if the class is object (0), otherwise False
+        True if result[0] == 0 else False,
+        predictionPercentage,
+    )  # Retur the prediction result
 
 
 # Function to predict if an image is an object or not given its file path
@@ -167,6 +172,11 @@ predictions = predictImagesInDirectory(
 )  # Predict the images in the test directory
 
 for filename, result in predictions:  # Iterate over the prediction results
+    imageName = filename  # Get the filename of the image
+    isObject = (
+        OBJECT_NAME if result[0] else NOT_OBJECT_NAME
+    )  # Get the object name based on the prediction
+    percentage = float(result[1] * 100)  # Convert the result to a float
     print(
-        f"Image: {filename}, {OBJECT_NAME}: {result}"
-    )  # Print the filename and prediction result
+        f"Image: {imageName}, It is {isObject}, Percentage: {percentage}"
+    )  # Print the prediction result
