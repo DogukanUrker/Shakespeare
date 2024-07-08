@@ -195,7 +195,7 @@ print("\n")  # Print newline for better readability
 startTime = time.time()  # Record start time for dataset splitting
 print("Splitting dataset into train and validation sets...")  # Print progress message
 XTrain, XVal, yTrain, yVal = train_test_split(
-    features, labels, test_size=0.2, random_state=42
+    features, labels, test_size=0.1, random_state=42
 )  # Split dataset
 endTime = time.time()  # Record end time for dataset splitting
 print(
