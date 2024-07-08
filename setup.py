@@ -25,27 +25,27 @@ def setupProject():
 
     if not os.path.exists(
         OBJECT_IMAGES_PATH
-    ):  # Check if the object images folder path does not exist.
-        os.mkdir(OBJECT_IMAGES_PATH)  # Create the object images folder.
+    ):  # Check if the {OBJECT_NAME} images folder path does not exist.
+        os.mkdir(OBJECT_IMAGES_PATH)  # Create the {OBJECT_NAME} images folder.
         print(
-            "Object images folder created!"
-        )  # Inform the user that the object images folder has been created.
+            f"{OBJECT_NAME} images folder created!"
+        )  # Inform the user that the {OBJECT_NAME} images folder has been created.
     else:
         print(
-            "Object images folder already exists!"
-        )  # Inform the user that the object images folder already exists.
+            f"{OBJECT_NAME} images folder already exists!"
+        )  # Inform the user that the {OBJECT_NAME} images folder already exists.
 
     if not os.path.exists(
         NOT_OBJECT_IMAGES_PATH
-    ):  # Check if the not object images folder path does not exist.
-        os.mkdir(NOT_OBJECT_IMAGES_PATH)  # Create the not object images folder.
+    ):  # Check if the {NOT_OBJECT_NAME} images folder path does not exist.
+        os.mkdir(NOT_OBJECT_IMAGES_PATH)  # Create the {NOT_OBJECT_NAME} images folder.
         print(
-            "Not object images folder created!"
-        )  # Inform the user that the not object images folder has been created.
+            f"{NOT_OBJECT_NAME} images folder created!"
+        )  # Inform the user that the {NOT_OBJECT_NAME} images folder has been created.
     else:
         print(
-            "Not object images folder already exists!"
-        )  # Inform the user that the not object images folder already exists.
+            f"{NOT_OBJECT_NAME} images folder already exists!"
+        )  # Inform the user that the {NOT_OBJECT_NAME} images folder already exists.
 
     if not os.path.exists(
         TEST_IMAGES_PATH
