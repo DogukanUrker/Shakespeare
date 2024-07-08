@@ -72,7 +72,7 @@ def setupProject():
         )  # Inform the user that the pkl folder already exists.
 
     subprocess.call(
-        ["pip", "install", "-r", "requirements.txt"]
+        ["pip3", "install", "-r", "requirements.txt"]
     )  # Run the command to install all required packages from requirements.txt.
 
     if (
