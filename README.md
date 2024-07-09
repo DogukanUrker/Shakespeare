@@ -1,5 +1,7 @@
 # 🚀 Shakespeare: Unleashing the Power of PyTorch for Object Identification
 
+**🇬🇧 English** | [🇹🇷 Türkçe](README_TR.md)
+
 Shakespeare is a lightweight PyTorch project designed to help you train a model to visually identify objects using popular architectures like ResNet, EfficientNet, VGG, DenseNet, or MobileNet.
 
 <p align="center">
