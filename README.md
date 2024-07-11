@@ -10,7 +10,7 @@ Shakespeare is a lightweight PyTorch project designed to help you train a model 
 
 ## 📹 Tutorial Video
 
-Check out my [Tutorial Video](notready) for a step-by-step guide!
+Check out my [Tutorial Video](https://youtu.be/8xC1-un_sjA) for a step-by-step guide!
 
 ## 📂 Installation
 
